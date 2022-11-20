@@ -19,6 +19,7 @@ def start():
         for cog_name in json_load["cog"]:
             print(cog_name)
             await bot.load_extension(f"Cog.{cog_name}")
+    return "123456789"
 
 @app.route('/')
 def hello_world():
