@@ -8,6 +8,6 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
-    print(os.environ.get("TOKEN"))
+    print(os.getenv("TOKEN"))
     print("123456789")
     return 'Hello, World!'
