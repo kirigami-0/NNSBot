@@ -12,12 +12,12 @@ app = Flask(__name__)
 bot = commands.Bot(command_prefix='n.', intents=discord.Intents.all())
 
 @app.route('/')
-def hello_world():
-    @bot.event
-    async def on_ready():
-        print("ボット起動")
-        for cog_name in json_load["cog"]:
-            print(cog_name)
-            await bot.load_extension(f"Cog.{cog_name}")
+async def hello_world():
+    # @bot.event
+    # async def on_ready():
+    print("ボット起動")
+    for cog_name in json_load["cog"]:
+        print(cog_name)
+        await bot.load_extension(f"Cog.{cog_name}")
     bot.run(os.getenv("TOKEN"))
     return 'Hello, World!'
