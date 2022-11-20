@@ -1,5 +1,5 @@
 from discord.ext import commands
-
+print("1542")
 class math(commands.Cog):
     def __init__(self, bot):
         self.bot = bot

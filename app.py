@@ -8,8 +8,8 @@ load_dotenv()
 json_load = json.load(open('cog.json', 'r'))
 
 from flask import Flask
-app = Flask(__name__)
-bot = commands.Bot(command_prefix='n.', intents=discord.Intents.all())
+# app = Flask(__name__)
+bot = commands.Bot(command_prefix='n.', intents=discord.Intents.all()), Flask(__name__)
 
 def start():
     print("123456789")
@@ -21,7 +21,7 @@ def start():
             await bot.load_extension(f"Cog.{cog_name}")
     return "123456789"
 
-@app.route('/')
+@bot.route('/')
 def hello_world():
     start()
     bot.run(os.getenv("TOKEN"))
