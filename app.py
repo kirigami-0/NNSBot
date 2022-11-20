@@ -2,9 +2,9 @@ import discord
 import os
 import json
 from dotenv import load_dotenv
-from discord.ext import commands
-from flask import Flask, render_template, request, session
-from oauth import Oauth
+# from discord.ext import commands
+from flask import Flask #, render_template, request, session
+# from oauth import Oauth
 load_dotenv()
 json_load = json.load(open('cog.json', 'r'))
 
@@ -13,17 +13,18 @@ app.config["SECRET_KEY"] = "test"
 
 @app.route('/')
 def home():
-    return render_template("index.html", discord_url= Oauth.discord_login_url)
+    # return render_template("index.html", discord_url= Oauth.discord_login_url)
+    return "123"
 
-@app.route('/login')
-def login ():
-    code = request.args.get("code")
-    access_token = Oauth.get_access_token(code)
-    session["token"] = access_token
+# @app.route('/login')
+# def login ():
+#     code = request.args.get("code")
+#     access_token = Oauth.get_access_token(code)
+#     session["token"] = access_token
 
-    user = Oauth.get_user_json(access_token)
-    user_name, user_id = user.get("username"), user.get("discriminator")
-    return f"成功 {user_name}#{access_token}"
+#     user = Oauth.get_user_json(access_token)
+#     user_name, user_id = user.get("username"), user.get("discriminator")
+#     return f"成功 {user_name}#{access_token}"
 
 
 if __name__ == '__main__':
