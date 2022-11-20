@@ -1,2 +1,4 @@
 Flask
 Gunicorn
+discord.py
+python-dotenv
